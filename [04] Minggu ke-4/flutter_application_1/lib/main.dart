@@ -5,9 +5,11 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       home: HomeScreen(),
       debugShowCheckedModeBanner: false,
     );
@@ -15,64 +17,83 @@ class MyApp extends StatelessWidget {
 }
 
 class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
+
+  @override
+
+  /// Builds the home screen of the app.
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.grey[300],
+        /// Tinggi toolbar
+        toolbarHeight: 32,
+
+        /// Warna latar belakang AppBar
+        backgroundColor: Theme.of(context).primaryColor,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(20),
+      body: SafeArea(
         child: Column(
-          // Menggunakan Column untuk menampung dua Row
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Welcome',
-                      style: TextStyle(
-                        fontSize: 24,
-                        color: Colors.blue,
-                        fontWeight: FontWeight.bold,
+            /// Header bagian atas dengan greeting dan avatar
+
+            Container(
+              padding: const EdgeInsets.all(24),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  /// Kolom untuk teks
+                  // Kolom untuk teks
+                  const Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      /// Nama dan NIM
+                      Text(
+                        'Welcome,',
+                        style: TextStyle(
+                            fontSize: 32, fontWeight: FontWeight.bold),
                       ),
-                    ),
-                    Text(
-                      'Deo Farady Santoso - 1201220447',
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.black,
+                      Text(
+                        '1201220447 - Deo',
+                        style: TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.normal),
                       ),
-                    ),
-                  ],
-                ),
-                CircleAvatar(
-                  radius: 30,
-                  backgroundImage:
-                      NetworkImage('https://example.com/profile.jpg'),
-                ),
-              ],
-            ),
-            SizedBox(height: 20), // Jarak antara dua Row
-            Row(
-              mainAxisAlignment:
-                  MainAxisAlignment.center, // Menjaga agar lingkaran di tengah
-              children: [
-                Container(
-                  width: 200, // Diameter lingkaran (2 * radius)
-                  height: 200, // Diameter lingkaran (2 * radius)
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(
-                        10), // Membulatkan sudut dengan radius 24
-                    color: Colors.blue, // Warna lingkaran
+                    ],
                   ),
-                ),
-              ],
+
+                  /// Kontainer untuk avatar (lingkaran)
+                  // Kontainer untuk avatar (lingkaran)
+                  Container(
+                    width: 56,
+                    height: 56,
+                    decoration: BoxDecoration(
+                      /// Warna avatar
+                      color: Colors.blue,
+
+                      /// Membuat bentuk bulat
+                      borderRadius: BorderRadius.circular(99),
+                    ),
+                  )
+                ],
+              ),
             ),
+
+            /// Kotak merah di tengah layar
+            // Kotak merah di tengah layar
+            Center(
+              child: Container(
+                height: 240,
+                width: 240,
+                decoration: BoxDecoration(
+                  /// Warna kotak
+                  color: Colors.red,
+
+                  /// Sudut kotak melengkung
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
+            ),
+            const SizedBox(height: 20), // Ruang kosong di bawah kotak
           ],
         ),
       ),
