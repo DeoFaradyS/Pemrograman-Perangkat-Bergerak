@@ -15,7 +15,7 @@ Repository ini berisi hasil praktikum **Pemrograman Perangkat Bergerak** yang di
 ## 📖 Tentang  
 Praktikum ini bertujuan untuk:  
 - Mengembangkan keterampilan dalam pengembangan aplikasi mobile.  
-- Memahami konsep dasar seperti layout, navigasi, *activity lifecycle*, hingga penggunaan API dan database lokal.  
+- Memahami konsep dasar seperti layout, navigasi, dll.  
 - Membiasakan diri dengan lingkungan pengembangan Android Studio.  
 
 ---
@@ -30,8 +30,10 @@ Praktikum ini bertujuan untuk:
 ├── Minggu-05/     # RecyclerView dan Adapter  
 ├── Minggu-06/     # API Integration  
 ├── Minggu-07/     # Database Lokal dengan Room  
-├── README.md       # Dokumentasi repository  
+├── Minggu-08/     # Depedency, Pengambilan gambar  
+├── README.md      # Dokumentasi repository  
 
+```
 ---
 
 ## 💻 Persyaratan Sistem  
@@ -40,7 +42,6 @@ Pastikan sistem Anda memenuhi persyaratan berikut sebelum menjalankan proyek:
 - **Android Studio**: Versi terbaru  
 - **JDK**: Java Development Kit versi 8 atau lebih baru  
 - **Android SDK**: Versi sesuai kebutuhan proyek  
-- **Gradle**: Dikonfigurasi otomatis oleh Android Studio  
 
 ---
 
@@ -63,10 +64,6 @@ Berikut adalah teknologi dan pustaka yang digunakan selama praktikum:
 - Bahasa Pemrograman: Kotlin
 - IDE: Android Studio
 - Framework: Android Jetpack Components
-- Pustaka Tambahan:
-    - Retrofit: Untuk integrasi API
-    - Glide: Untuk manajemen gambar
-    - Room: Untuk database lokal
 
 ---
 
