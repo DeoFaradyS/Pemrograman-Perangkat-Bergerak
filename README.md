@@ -1,1 +1,75 @@
-# Pemrograman-Perangkat-Bergerak
+# Pemrograman Perangkat Bergerak  
+
+Repository ini berisi hasil praktikum **Pemrograman Perangkat Bergerak** yang dilakukan setiap minggu. Praktikum ini bertujuan untuk memahami dan mengimplementasikan konsep-konsep pengembangan aplikasi pada perangkat bergerak (mobile).
+
+## 📋 Daftar Isi  
+1. [Tentang](#tentang)  
+2. [Struktur Folder](#struktur-folder)  
+3. [Persyaratan Sistem](#persyaratan-sistem)  
+4. [Cara Penggunaan](#cara-penggunaan)  
+5. [Teknologi yang Digunakan](#teknologi-yang-digunakan)  
+6. [Kontributor](#kontributor)  
+
+---
+
+## 📖 Tentang  
+Praktikum ini bertujuan untuk:  
+- Mengembangkan keterampilan dalam pengembangan aplikasi mobile.  
+- Memahami konsep dasar seperti layout, navigasi, *activity lifecycle*, hingga penggunaan API dan database lokal.  
+- Membiasakan diri dengan lingkungan pengembangan Android Studio.  
+
+---
+
+## 📂 Struktur Folder  
+```plaintext  
+.
+├── Minggu-01/     # Pengenalan Android Studio dan Hello World  
+├── Minggu-02/     # Layout dan Komponen Dasar  
+├── Minggu-03/     # Navigasi dan Intent  
+├── Minggu-04/     # Activity Lifecycle dan Fragment  
+├── Minggu-05/     # RecyclerView dan Adapter  
+├── Minggu-06/     # API Integration  
+├── Minggu-07/     # Database Lokal dengan Room  
+├── README.md       # Dokumentasi repository  
+
+---
+
+## 💻 Persyaratan Sistem  
+Pastikan sistem Anda memenuhi persyaratan berikut sebelum menjalankan proyek:  
+
+- **Android Studio**: Versi terbaru  
+- **JDK**: Java Development Kit versi 8 atau lebih baru  
+- **Android SDK**: Versi sesuai kebutuhan proyek  
+- **Gradle**: Dikonfigurasi otomatis oleh Android Studio  
+
+---
+
+## 🚀 Cara Penggunaan  
+1. Clone repository ini ke komputer lokal Anda:  
+   ```bash
+   git clone https://github.com/DeoFaradyS/Pemrograman-Perangkat-Bergerak.git  
+2. Buka proyek di Android Studio.
+3. Pilih folder sesuai minggu praktikum yang ingin dijalankan.
+4. Bangun (build) proyek untuk mengunduh dependensi:
+    - Klik Sync Now di notifikasi Gradle.
+    - Tunggu hingga proses selesai.
+5. Jalankan aplikasi pada emulator atau perangkat fisik yang terhubung:
+    - Pilih Run > Run 'app' dari menu atas.
+
+---
+
+## 🛠 Teknologi yang Digunakan
+Berikut adalah teknologi dan pustaka yang digunakan selama praktikum:
+- Bahasa Pemrograman: Kotlin
+- IDE: Android Studio
+- Framework: Android Jetpack Components
+- Pustaka Tambahan:
+    - Retrofit: Untuk integrasi API
+    - Glide: Untuk manajemen gambar
+    - Room: Untuk database lokal
+
+---
+
+## 🤝 Kontributor
+Proyek ini dikerjakan oleh:
+- Deo Farady Santoso - 1201220447
