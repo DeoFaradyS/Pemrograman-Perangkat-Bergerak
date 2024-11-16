@@ -21,12 +21,12 @@ Praktikum ini bertujuan untuk:
 ---
 
 ## 📂 Struktur Folder  
-```plaintext  
-.
-├── Minggu-01/     # Pengenalan Android Studio dan Hello World  
-├── Minggu-02/     # Layout dan Komponen Dasar  
-├── Minggu-03/     # Navigasi dan Intent  
-├── Minggu-04/     # Activity Lifecycle dan Fragment  
+```  
+
+├── Minggu-01/     # Pengenalan
+├── Minggu-02/     # Installasi,Konfigurasi Flutter, dan Basic Dart
+├── Minggu-03/     # Layout Dasar
+├── Minggu-04/     # Layout Dasar (Row, Column) 
 ├── Minggu-05/     # RecyclerView dan Adapter  
 ├── Minggu-06/     # API Integration  
 ├── Minggu-07/     # Database Lokal dengan Room  
