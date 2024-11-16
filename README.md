@@ -9,6 +9,7 @@ Repository ini berisi hasil praktikum **Pemrograman Perangkat Bergerak** yang di
 4. [Cara Penggunaan](#cara-penggunaan)  
 5. [Teknologi yang Digunakan](#teknologi-yang-digunakan)  
 6. [Kontributor](#kontributor)  
+7.  [Changelog](#changelog)
 
 ---
 
@@ -25,11 +26,11 @@ Praktikum ini bertujuan untuk:
 
 ├── Minggu-01/     # Pengenalan
 ├── Minggu-02/     # Installasi,Konfigurasi Flutter, dan Basic Dart
-├── Minggu-03/     # Layout Dasar (Widget, Container, Row & Column, ListView, GridView, Stack)
-├── Minggu-04/     # Layout Dasar (Row, Column) 
-├── Minggu-05/     # RecyclerView dan Adapter  
-├── Minggu-06/     # API Integration  
-├── Minggu-07/     # Database Lokal dengan Room  
+├── Minggu-03/     # Layout (Widget, Container, Row & Column, ListView, GridView, Stack)
+├── Minggu-04/     # Layout (Nested Row/Column, Tabview, Pageview, Safe area) 
+├── Minggu-05/     # User Interaction (Stateful & Stateless Widget, Button, SnackBar, Dialog, Menu)
+├── Minggu-06/     # Navigation (Package, Navigation, Notification)  
+├── Minggu-07/     # - 
 ├── Minggu-08/     # Depedency, Pengambilan gambar  
 ├── README.md      # Dokumentasi repository  
 
@@ -70,3 +71,15 @@ Berikut adalah teknologi dan pustaka yang digunakan selama praktikum:
 ## 🤝 Kontributor
 Proyek ini dikerjakan oleh:
 - Deo Farady Santoso - 1201220447
+
+## 📜 Changelog
+Riwayat perubahan pada repository ini:
+
+[v1.8.1] - (16 November 2024)
+Minggu ke-2:
+- Memperbaiki struktur folder
+
+Minggu ke-3:
+- Meningkatkan struktur kode
+- Memperbaiki struktur folder
+- Memperbarui README.md
