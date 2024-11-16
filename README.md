@@ -25,7 +25,7 @@ Praktikum ini bertujuan untuk:
 
 ├── Minggu-01/     # Pengenalan
 ├── Minggu-02/     # Installasi,Konfigurasi Flutter, dan Basic Dart
-├── Minggu-03/     # Layout Dasar
+├── Minggu-03/     # Layout Dasar (Widget, Container, Row & Column, ListView, GridView, Stack)
 ├── Minggu-04/     # Layout Dasar (Row, Column) 
 ├── Minggu-05/     # RecyclerView dan Adapter  
 ├── Minggu-06/     # API Integration  
