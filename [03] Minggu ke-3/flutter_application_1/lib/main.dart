@@ -4,8 +4,6 @@ import 'package:flutter_application_1/%5B01%5D%20container.dart';
 import 'package:flutter_application_1/%5B04%5D%20ListVieww.dart';
 import 'package:flutter_application_1/%5B05%5D%20GridVieww.dart';
 import 'package:flutter_application_1/%5B06%5D%20Stack.dart';
-import 'package:flutter_application_1/homepage.dart';
-import 'package:flutter_application_1/%5B02%5D%20roww.dart';
 
 void main() {
   runApp(const MyApp());

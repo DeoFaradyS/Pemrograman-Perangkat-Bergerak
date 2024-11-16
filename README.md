@@ -83,3 +83,6 @@ Minggu ke-3:
 - Meningkatkan struktur kode
 - Memperbaiki struktur folder
 - Memperbarui README.md
+
+Minggu ke-5:
+- Memperbaiki struktur folder
