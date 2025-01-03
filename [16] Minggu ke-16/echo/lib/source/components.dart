@@ -47,6 +47,7 @@ class PrimaryButton extends StatelessWidget {
   TextStyle _textStyle() {
     return const TextStyle(
       color: Colors.white,
+      fontFamily: 'DMSerifText',
       fontSize: 16,
       fontWeight: FontWeight.bold,
     );

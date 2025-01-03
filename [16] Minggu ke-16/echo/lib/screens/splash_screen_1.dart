@@ -21,7 +21,12 @@ class SplashScreen1 extends StatelessWidget {
               SizedBox(height: 40),
 
               // Text Group
-              Text("Welcome to Echo!"),
+              Text("Welcome to Echo!",
+                  style: TextStyle(
+                    fontFamily: 'Poppins',
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  )),
               Text("Your shopping journey begins here."),
 
               SizedBox(height: 40),
