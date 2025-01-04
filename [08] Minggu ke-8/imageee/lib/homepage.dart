@@ -11,7 +11,6 @@ class Homepage extends StatefulWidget {
 
 class _HomepageState extends State<Homepage> {
   File? _imageFile; // Menyimpan file gambar yang dipilih
-  File? _videoFile; // Menyimpan file video yang dipilih
 
   @override
   Widget build(BuildContext context) {
@@ -91,7 +90,6 @@ class _HomepageState extends State<Homepage> {
   void _updateVideoFile(XFile? pickedFile) {
     if (pickedFile != null) {
       setState(() {
-        _videoFile = File(pickedFile.path);
       });
     }
   }
