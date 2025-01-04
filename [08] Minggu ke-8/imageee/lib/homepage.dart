@@ -10,8 +10,8 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
-  File? imageFile;
-  File? videoFile;
+  File? _imageFile; // Menyimpan file gambar yang dipilih
+  File? _videoFile; // Menyimpan file video yang dipilih
 
   @override
   Widget build(BuildContext context) {
@@ -22,80 +22,76 @@ class _HomepageState extends State<Homepage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            // ambil image dari asset/lokal
-            Image.asset('assets/1.jpg'),
-
-            // menampilkan image dari button di bawah ini
-            imageFile != null
-                ? Image.file(imageFile!) // tampilkan gambar jika ada
-                : const Text(
-                    'Tidak ada gambar yang dipilih'), // pesan jika tidak ada gambar
-
-            // ambil image dari galeri
-            ElevatedButton(
-              onPressed: pickImageFromGallery,
-              child: const Text('Ambil image dari galeri'),
-            ),
-
-            // ambil image dari camera
-            ElevatedButton(
-              onPressed: pickImageFromCamera,
-              child: const Text('Ambil image dari camera'),
-            ),
-
-            // ambil video dari galeri
-            ElevatedButton(
-              onPressed: pickVideoFromGallery,
-              child: const Text('Ambil video dari galeri'),
-            ),
-
-            // ambil video dari camera
-            ElevatedButton(
-              onPressed: pickVideoFromCamera,
-              child: const Text('Ambil video dari camera'),
-            ),
+            _buildImageFromAsset(),
+            _buildImageFromFile(),
+            _buildButton('Ambil image dari galeri', pickImageFromGallery),
+            _buildButton('Ambil image dari camera', pickImageFromCamera),
+            _buildButton('Ambil video dari galeri', pickVideoFromGallery),
+            _buildButton('Ambil video dari camera', pickVideoFromCamera),
           ],
         ),
       ),
     );
   }
 
+// Menampilkan gambar dari aset lokal
+  Widget _buildImageFromAsset() {
+    return Image.asset('assets/1.jpg');
+  }
+
+// Menampilkan gambar yang dipilih dari file
+  Widget _buildImageFromFile() {
+    return _imageFile != null
+        ? Image.file(_imageFile!)
+        : const Text('Tidak ada gambar yang dipilih');
+  }
+
+// Membuat tombol dengan teks dan fungsi yang dapat disesuaikan
+  Widget _buildButton(String text, VoidCallback onPressed) {
+    return ElevatedButton(
+      onPressed: onPressed,
+      child: Text(text),
+    );
+  }
+
+ // Memilih gambar dari galeri
   Future<void> pickImageFromGallery() async {
-    final pickedFile =
-        await ImagePicker().pickImage(source: ImageSource.gallery);
-    if (pickedFile != null) {
-      setState(() {
-        imageFile = File(pickedFile.path);
-      });
-    }
+    final pickedFile = await ImagePicker().pickImage(source: ImageSource.gallery);
+    _updateImageFile(pickedFile);
   }
 
+// Mengambil gambar dari kamera
   Future<void> pickImageFromCamera() async {
-    final pickedFile =
-        await ImagePicker().pickImage(source: ImageSource.camera);
-    if (pickedFile != null) {
-      setState(() {
-        imageFile = File(pickedFile.path);
-      });
-    }
+    final pickedFile = await ImagePicker().pickImage(source: ImageSource.camera);
+    _updateImageFile(pickedFile);
   }
 
+ // Memilih video dari galeri
   Future<void> pickVideoFromGallery() async {
-    final pickedFile =
-        await ImagePicker().pickVideo(source: ImageSource.gallery);
+    final pickedFile = await ImagePicker().pickVideo(source: ImageSource.gallery);
+    _updateVideoFile(pickedFile);
+  }
+
+// Merekam video dari kamera
+  Future<void> pickVideoFromCamera() async {
+    final pickedFile = await ImagePicker().pickVideo(source: ImageSource.camera);
+    _updateVideoFile(pickedFile);
+  }
+
+// Memperbarui file gambar yang dipilih
+  void _updateImageFile(XFile? pickedFile) {
     if (pickedFile != null) {
       setState(() {
-        videoFile = File(pickedFile.path);
+        _imageFile = File(pickedFile.path);
       });
     }
   }
 
-  Future<void> pickVideoFromCamera() async {
-    final pickedFile =
-        await ImagePicker().pickVideo(source: ImageSource.camera);
+// Memperbarui file video yang dipilih
+  void _updateVideoFile(XFile? pickedFile) {
     if (pickedFile != null) {
       setState(() {
-        videoFile = File(pickedFile.path);
+        _videoFile = File(pickedFile.path);
       });
     }
   }
