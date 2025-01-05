@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:belajar_api/DB/todo_api.dart';
 import 'package:belajar_api/Screen/create_todo_widget.dart';
+import 'package:belajar_api/Model/todo_api_model.dart';
 
 class TodoApiCrud extends StatefulWidget {
   const TodoApiCrud({super.key});
@@ -9,20 +10,19 @@ class TodoApiCrud extends StatefulWidget {
   State<TodoApiCrud> createState() => _TodoApiCrudState();
 }
 
-// ignore: camel_case_types
 class _TodoApiCrudState extends State<TodoApiCrud> {
-  Future<dynamic>? futureTodo;
-  final todoApi = TodoApi();
+  Future<List<TodoApiModel>>? _futureTodos;
+  final TodoApi _todoApi = TodoApi();
 
   @override
   void initState() {
     super.initState();
-    getTodo();
+    _fetchTodos();
   }
 
-  void getTodo() {
+  void _fetchTodos() {
     setState(() {
-      futureTodo = todoApi.getTodo();
+      _futureTodos = _todoApi.fetchTodos();
     });
   }
 
@@ -32,73 +32,82 @@ class _TodoApiCrudState extends State<TodoApiCrud> {
       appBar: AppBar(
         title: const Text("Todo CRUD"),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          showDialog(
-              context: context,
-              builder: (_) => CreateTodoWidget(onSubmit: (Title) async {
-                    await todoApi.post(Title);
-                    if (!mounted) return;
-                    getTodo();
-                    Navigator.of(context).pop();
-                  }));
+      floatingActionButton: _buildFloatingActionButton(),
+      body: _buildBody(),
+    );
+  }
+
+  FloatingActionButton _buildFloatingActionButton() {
+    return FloatingActionButton(
+      onPressed: () => _showCreateTodoDialog(),
+      child: const Icon(Icons.add),
+    );
+  }
+
+  Future<void> _showCreateTodoDialog() async {
+    showDialog(
+      context: context,
+      builder: (_) => CreateTodoWidget(onSubmit: (title) async {
+        await _todoApi.createTodo(title);
+        if (!mounted) return;
+        _fetchTodos();
+        Navigator.of(context).pop();
+      }),
+    );
+  }
+
+  Widget _buildBody() {
+    return FutureBuilder<List<TodoApiModel>>(
+      future: _futureTodos,
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Center(child: CircularProgressIndicator());
+        } else if (snapshot.hasError) {
+          return Center(child: Text('Error: ${snapshot.error}'));
+        } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
+          return const Center(child: Text('No Todo Added Yet'));
+        }
+
+        final todos = snapshot.data!;
+
+        return ListView.separated(
+          separatorBuilder: (context, index) => const SizedBox(height: 12),
+          itemCount: todos.length,
+          itemBuilder: (context, index) {
+            return _buildTodoItem(todos[index]);
+          },
+        );
+      },
+    );
+  }
+
+  Widget _buildTodoItem(TodoApiModel todo) {
+    return ListTile(
+      title: Text(todo.title),
+      trailing: IconButton(
+        onPressed: () async {
+          await _todoApi.deleteTodo(todo.id);
+          _fetchTodos();
         },
-        child: const Icon(Icons.add),
+        icon: const Icon(Icons.delete),
+        color: Colors.red,
       ),
-      body: FutureBuilder(
-          future: futureTodo,
-          builder: (context, snapshot) {
-            if (snapshot.connectionState == ConnectionState.waiting) {
-              return const CircularProgressIndicator();
-            } else {
-              if (snapshot.data == null) {
-                return const Center(child: Text('No Todo Added Yet'));
-              }
+      onTap: () => _showUpdateTodoDialog(todo),
+    );
+  }
 
-              final todos = snapshot.data!;
-
-              return todos.isEmpty
-                  ? const Center(
-                      child: Text("No Todo Added Yet"),
-                    )
-                  : ListView.separated(
-                      separatorBuilder: (context, index) {
-                        return const SizedBox(
-                          height: 12,
-                        );
-                      },
-                      itemCount: todos.length,
-                      itemBuilder: (context, index) {
-                        final todo = todos[index];
-
-                        return ListTile(
-                          title: Text(todo.title),
-                          trailing: IconButton(
-                            onPressed: () async {
-                              await todoApi.delete(todo.id);
-                              getTodo();
-                            },
-                            icon: const Icon(Icons.delete),
-                            color: Colors.red,
-                          ),
-                          onTap: () {
-                            showDialog(
-                                context: context,
-                                builder: (context) => CreateTodoWidget(
-                                    todoApi: todo,
-                                    onSubmit: (Title) async {
-                                      await todoApi.put(
-                                          todo.id, Title);
-                                      if (!mounted) return;
-                                      getTodo();
-                                      Navigator.of(context).pop();
-                                    }));
-                          },
-                        );
-                      },
-                    );
-            }
-          }),
+  Future<void> _showUpdateTodoDialog(TodoApiModel todo) async {
+    showDialog(
+      context: context,
+      builder: (context) => CreateTodoWidget(
+        todoApi: todo,
+        onSubmit: (title) async {
+          await _todoApi.updateTodo(todo.id, title);
+          if (!mounted) return;
+          _fetchTodos();
+          Navigator.of(context).pop();
+        },
+      ),
     );
   }
 }
