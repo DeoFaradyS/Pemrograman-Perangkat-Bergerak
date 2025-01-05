@@ -1,0 +1,5 @@
+todo_app/* filter=lfs diff=lfs merge=lfs -text
+ke-8.zip' filter=lfs diff=lfs merge=lfs -text
+'[08] filter=lfs diff=lfs merge=lfs -text
+Minggu filter=lfs diff=lfs merge=lfs -text
+[08][[:space:]]Minggu[[:space:]]ke-8.zip filter=lfs diff=lfs merge=lfs -text
