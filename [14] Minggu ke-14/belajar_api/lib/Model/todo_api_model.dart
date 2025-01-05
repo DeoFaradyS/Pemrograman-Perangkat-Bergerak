@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 class TodoApiModel {
-  String id;
-  String title;
+  final String id;
+  final String title;
 
   TodoApiModel({
     required this.id,
@@ -11,19 +11,25 @@ class TodoApiModel {
 
   factory TodoApiModel.fromJson(Map<String, dynamic> json) {
     return TodoApiModel(
-      id: json['id'],
-      title: json['title'],
+      id: json['id'] as String,
+      title: json['title'] as String,
     );
-    
   }
-    Map<String, dynamic> toJson() => {
+
+  Map<String, dynamic> toJson() {
+    return {
       'id': id,
-      'title': title
+      'title': title,
     };
+  }
 }
 
-List<TodoApiModel> todoApiModelFromJson(String str) => List<TodoApiModel>.from(json.decode(str).map((x) => TodoApiModel.fromJson(x)));
+List<TodoApiModel> todoApiModelFromJson(String jsonString) {
+  final List<dynamic> jsonData = json.decode(jsonString);
+  return jsonData.map((json) => TodoApiModel.fromJson(json)).toList();
+}
 
-String todoApiModelToJson(
-  List<TodoApiModel> data,
-) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+String todoApiModelToJson(List<TodoApiModel> todos) {
+  final List<Map<String, dynamic>> jsonList = todos.map((todo) => todo.toJson()).toList();
+  return json.encode(jsonList);
+}
