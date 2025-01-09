@@ -1,4 +1,6 @@
 // ignore: file_names
+// ignore: file_names
+// ignore: file_names
 class User {
   final String name;
   final String token;
