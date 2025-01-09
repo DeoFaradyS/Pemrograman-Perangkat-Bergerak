@@ -11,7 +11,7 @@ class Homepage extends StatelessWidget {
       appBar: AppBar(
         toolbarHeight: 72,
         backgroundColor: green500,
-        title: TabBarWidget(),
+        title: const TabBarWidget(),
       ),
       body: const Center(
         child: Text(

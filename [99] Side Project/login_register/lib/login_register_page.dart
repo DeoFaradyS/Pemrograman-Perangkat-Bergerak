@@ -3,7 +3,10 @@ import 'database_helper.dart';
 import 'user.dart';
 
 class LoginRegisterPage extends StatefulWidget {
+  const LoginRegisterPage({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _LoginRegisterPageState createState() => _LoginRegisterPageState();
 }
 
@@ -29,13 +32,15 @@ class _LoginRegisterPageState extends State<LoginRegisterPage> {
       );
       if (user != null) {
         // Login berhasil
+        // ignore: use_build_context_synchronously
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Login berhasil!')),
+          const SnackBar(content: Text('Login berhasil!')),
         );
       } else {
         // Login gagal
+        // ignore: use_build_context_synchronously
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Username atau password salah!')),
+          const SnackBar(content: Text('Username atau password salah!')),
         );
       }
     } else {
@@ -45,8 +50,9 @@ class _LoginRegisterPageState extends State<LoginRegisterPage> {
         password: _passwordController.text,
       );
       await _databaseHelper.insertUser(newUser);
+      // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Registrasi berhasil!')),
+        const SnackBar(content: Text('Registrasi berhasil!')),
       );
       _toggleForm();
     }
@@ -65,14 +71,14 @@ class _LoginRegisterPageState extends State<LoginRegisterPage> {
           children: [
             TextField(
               controller: _usernameController,
-              decoration: InputDecoration(labelText: 'Username'),
+              decoration: const InputDecoration(labelText: 'Username'),
             ),
             TextField(
               controller: _passwordController,
-              decoration: InputDecoration(labelText: 'Password'),
+              decoration: const InputDecoration(labelText: 'Password'),
               obscureText: true,
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: _submit,
               child: Text(_isLogin ? 'Login' : 'Register'),
@@ -87,7 +93,7 @@ class _LoginRegisterPageState extends State<LoginRegisterPage> {
               onPressed: () {
                 Navigator.pushNamed(context, '/userList');
               },
-              child: Text('Lihat Daftar Pengguna'),
+              child: const Text('Lihat Daftar Pengguna'),
             ),
           ],
         ),

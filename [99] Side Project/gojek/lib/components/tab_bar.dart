@@ -13,7 +13,7 @@ class TabBarWidget extends StatelessWidget {
         color: green700,
         borderRadius: BorderRadius.circular(999),
       ),
-      child: Row(
+      child: const Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           _TabBarItem('Beranda', isSelected: true),
