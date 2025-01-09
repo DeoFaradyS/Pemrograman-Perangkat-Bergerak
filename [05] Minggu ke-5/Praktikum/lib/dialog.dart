@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class Dialog extends StatelessWidget {
+  const Dialog({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -9,12 +11,12 @@ class Dialog extends StatelessWidget {
         children: [
           ElevatedButton(
             onPressed: () => showSimpleDialog(context),
-            child: Text('Tampilkan Simple Dialog'),
+            child: const Text('Tampilkan Simple Dialog'),
           ),
-          SizedBox(height: 20), // Jarak antar tombol
+          const SizedBox(height: 20), // Jarak antar tombol
           ElevatedButton(
             onPressed: () => showAlertDialog(context),
-            child: Text('Tampilkan Alert Dialog'),
+            child: const Text('Tampilkan Alert Dialog'),
           ),
         ],
       ),
@@ -28,19 +30,19 @@ void showSimpleDialog(BuildContext context) {
     context: context,
     builder: (BuildContext context) {
       return SimpleDialog(
-        title: Text('Pilih Opsi'),
+        title: const Text('Pilih Opsi'),
         children: <Widget>[
           SimpleDialogOption(
             onPressed: () {
               Navigator.pop(context, 'Opsi 1');
             },
-            child: Text('Opsi 1'),
+            child: const Text('Opsi 1'),
           ),
           SimpleDialogOption(
             onPressed: () {
               Navigator.pop(context, 'Opsi 2');
             },
-            child: Text('Opsi 2'),
+            child: const Text('Opsi 2'),
           ),
         ],
       );
@@ -54,14 +56,14 @@ void showAlertDialog(BuildContext context) {
     context: context,
     builder: (BuildContext context) {
       return AlertDialog(
-        title: Text('Konfirmasi'),
-        content: Text('Apakah Anda yakin ingin melanjutkan?'),
+        title: const Text('Konfirmasi'),
+        content: const Text('Apakah Anda yakin ingin melanjutkan?'),
         actions: <Widget>[
           TextButton(
             onPressed: () {
               Navigator.pop(context); // Menutup dialog
             },
-            child: Text('Batal'),
+            child: const Text('Batal'),
           ),
           TextButton(
             onPressed: () {
@@ -69,7 +71,7 @@ void showAlertDialog(BuildContext context) {
               Navigator.pop(context); // Menutup dialog
               // Tambahkan aksi lain di sini jika perlu
             },
-            child: Text('OK'),
+            child: const Text('OK'),
           ),
         ],
       );

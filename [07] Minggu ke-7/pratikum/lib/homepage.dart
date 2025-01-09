@@ -12,16 +12,16 @@ class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('First Screen')),
+      appBar: AppBar(title: const Text('First Screen')),
       body: Center(
         child: ElevatedButton(
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => Secondscreen()),
+              MaterialPageRoute(builder: (context) => const Secondscreen()),
             );
           },
-          child: Text('Go to Second Screen'),
+          child: const Text('Go to Second Screen'),
         ),
       ),
     );

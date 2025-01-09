@@ -11,13 +11,13 @@ class _SecondscreenState extends State<Secondscreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Second Screen')),
+      appBar: AppBar(title: const Text('Second Screen')),
       body: Center(
         child: ElevatedButton(
           onPressed: () {
             Navigator.pop(context); // Kembali ke layar sebelumnya
           },
-          child: Text('Go Back'),
+          child: const Text('Go Back'),
         ),
       ),
     );

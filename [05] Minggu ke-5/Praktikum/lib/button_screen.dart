@@ -25,16 +25,16 @@ class _MyWidgetState extends State<MyWidget> {
               onPressed: () {},
               style: TextButton.styleFrom(
                   backgroundColor: Colors.blue,
-                  padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8)),
+                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8)),
               child: const Text('Button', style: TextStyle(fontSize: 16)),
             ),
             ElevatedButton(
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: Color.fromARGB(255, 0, 179, 255)),
-                child: Text('elevated button')),
-            OutlinedButton(onPressed: () {}, child: Text('outline button')),
-            IconButton(onPressed: () {}, icon: Icon(Icons.thumb_up)),
+                    backgroundColor: const Color.fromARGB(255, 0, 179, 255)),
+                child: const Text('elevated button')),
+            OutlinedButton(onPressed: () {}, child: const Text('outline button')),
+            IconButton(onPressed: () {}, icon: const Icon(Icons.thumb_up)),
             DropdownButton<String>(
                 value: _selectedItem,
                 items: const [

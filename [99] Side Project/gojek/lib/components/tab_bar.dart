@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:gojek/theme/theme.dart';
 
 class TabBarWidget extends StatelessWidget {
+  const TabBarWidget({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -28,7 +30,7 @@ class _TabBarItem extends StatelessWidget {
   final String title;
   final bool isSelected;
 
-  const _TabBarItem(this.title, {this.isSelected = false, super.key});
+  const _TabBarItem(this.title, {this.isSelected = false});
 
   @override
   Widget build(BuildContext context) {

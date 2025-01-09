@@ -157,6 +157,7 @@ class _DataStorageDemoState extends State<DataStorageDemo> {
   // Method untuk menyimpan nama
   Future<void> _saveName() async {
     await _dataStorageService.saveName(_name);
+    // ignore: use_build_context_synchronously
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(content: Text('Nama disimpan!')),
     );
@@ -173,6 +174,7 @@ class _DataStorageDemoState extends State<DataStorageDemo> {
   // Method untuk menyimpan token
   Future<void> _saveToken() async {
     await _dataStorageService.saveToken(_token);
+    // ignore: use_build_context_synchronously
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(content: Text('Token disimpan!')),
     );
@@ -190,6 +192,7 @@ class _DataStorageDemoState extends State<DataStorageDemo> {
   Future<void> _saveLocalUser () async {
     User user = User(name: _name, token: _token);
     await _dataStorageService.saveLocalUser (user);
+    // ignore: use_build_context_synchronously
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(content: Text('User  lokal disimpan!')),
     );
@@ -204,6 +207,7 @@ class _DataStorageDemoState extends State<DataStorageDemo> {
   // Method untuk membuat tabel SQLite
   Future<void> _createTable() async {
     await _dataStorageService.createTable();
+    // ignore: use_build_context_synchronously
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(content: Text('Tabel dibuat!')),
     );

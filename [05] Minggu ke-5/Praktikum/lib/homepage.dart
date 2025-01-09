@@ -7,7 +7,7 @@ class Homepage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Deo'),
+        title: const Text('Deo'),
       ),
       body: SafeArea(
         child: Column(
@@ -15,19 +15,19 @@ class Homepage extends StatelessWidget {
             // elevated button
             ElevatedButton(
               onPressed: () {},
-              child: Text('Kirim'),
+              child: const Text('Kirim'),
             ),
 
             // outlined button
             OutlinedButton(
               onPressed: () {},
-              child: Text('Batal'),
+              child: const Text('Batal'),
             ),
 
             // floating action button
             FloatingActionButton(
               onPressed: () {},
-              child: Icon(Icons.add),
+              child: const Icon(Icons.add),
             ),
 
             // dropdown button
@@ -44,7 +44,7 @@ class Homepage extends StatelessWidget {
 
             // icon button
             IconButton(
-              icon: Icon(Icons.favorite),
+              icon: const Icon(Icons.favorite),
               onPressed: () {},
             ),
 
@@ -69,18 +69,18 @@ class Homepage extends StatelessWidget {
                 // Menampilkan SnackBar saat tombol ditekan
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
-                    content: Text('Ini adalah SnackBar!'),
+                    content: const Text('Ini adalah SnackBar!'),
                     action: SnackBarAction(
                       label: 'TUTUP',
                       onPressed: () {
                         // Aksi saat tombol TUTUP ditekan
                       },
                     ),
-                    duration: Duration(seconds: 3), // Durasi SnackBar
+                    duration: const Duration(seconds: 3), // Durasi SnackBar
                   ),
                 );
               },
-              child: Text('Tampilkan SnackBar'),
+              child: const Text('Tampilkan SnackBar'),
             ),
 
             // simple dialog
@@ -90,26 +90,26 @@ class Homepage extends StatelessWidget {
                   context: context,
                   builder: (BuildContext context) {
                     return SimpleDialog(
-                      title: Text('Simple Dialog'),
+                      title: const Text('Simple Dialog'),
                       children: <Widget>[
                         SimpleDialogOption(
                           onPressed: () {
                             Navigator.pop(context);
                           },
-                          child: Text('Opsi 1'),
+                          child: const Text('Opsi 1'),
                         ),
                         SimpleDialogOption(
                           onPressed: () {
                             Navigator.pop(context);
                           },
-                          child: Text('Opsi 2'),
+                          child: const Text('Opsi 2'),
                         ),
                       ],
                     );
                   },
                 );
               },
-              child: Text('Tampilkan Simple Dialog'),
+              child: const Text('Tampilkan Simple Dialog'),
             ),
 
             // alert dialog
@@ -119,21 +119,21 @@ class Homepage extends StatelessWidget {
                   context: context,
                   builder: (BuildContext context) {
                     return AlertDialog(
-                      title: Text('Alert Dialog'),
-                      content: Text('Ini adalah Alert Dialog.'),
+                      title: const Text('Alert Dialog'),
+                      content: const Text('Ini adalah Alert Dialog.'),
                       actions: <Widget>[
                         TextButton(
                           onPressed: () {
                             Navigator.pop(context);
                           },
-                          child: Text('Tutup'),
+                          child: const Text('Tutup'),
                         ),
                       ],
                     );
                   },
                 );
               },
-              child: Text('Tampilkan Alert Dialog'),
+              child: const Text('Tampilkan Alert Dialog'),
             ),
           ],
         ),

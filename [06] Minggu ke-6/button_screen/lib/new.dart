@@ -61,6 +61,7 @@ class _FirstScreenState extends State<FirstScreen> {
   Future<void> _returnData() async {
     final result = await Navigator.pushNamed(context, '/return-data');
 
+    // ignore: use_build_context_synchronously
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text(result.toString())),
     );
