@@ -21,10 +21,10 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       routes:{
-        '/' : (context) => FirstScreen(),
-        '/secondscreen' : (context) => SecondScreen(),
-        '/argument' :  (context) => ArgumentScreen(message: 'cihuyy'),
-        '/return-data'  : (context) => ReturnData(),
+        '/' : (context) => const FirstScreen(),
+        '/secondscreen' : (context) => const SecondScreen(),
+        '/argument' :  (context) => const ArgumentScreen(message: 'cihuyy'),
+        '/return-data'  : (context) => const ReturnData(),
 
 
       } 
@@ -62,30 +62,6 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  void _showSimpleDialog() {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return SimpleDialog(
-          title: const Text('Simple Dialog Title'),
-          children: <Widget>[
-            SimpleDialogOption(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: const Text('Option 1'),
-            ),
-            SimpleDialogOption(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: const Text('Option 2'),
-            ),
-          ],
-        );
-      },
-    );
-  }
 
   void _onItemTapped(int index) {
     setState(() {
